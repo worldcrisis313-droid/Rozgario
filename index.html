@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JOBConnect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>JOBConnect</h1>
+  <p>Daily Wage Worker Matching Platform</p>
+</header>
+
+<nav>
+  <button onclick="showSection('client')">Client</button>
+  <button onclick="showSection('worker')">Worker</button>
+  <button onclick="showSection('wallet')">Wallet</button>
+</nav>
+
+<section id="client" class="section active">
+  <h2>Find Workers Nearby</h2>
+  <select id="skillSelect">
+    <option>Plumber</option>
+    <option>Electrician</option>
+    <option>Carpenter</option>
+    <option>Cleaner</option>
+  </select>
+  <button onclick="findWorkers()">Search</button>
+  <div id="workerList"></div>
+</section>
+
+<section id="worker" class="section">
+  <h2>Worker Dashboard</h2>
+  <label><input type="checkbox" onchange="toggleAvailability()"> Available Now</label>
+  <p>Today's Earnings: ₹<span id="earnings">0</span></p>
+  <button onclick="simulateJob()">Complete Job</button>
+</section>
+
+<section id="wallet" class="section">
+  <h2>Wallet</h2>
+  <p>Balance: ₹<span id="balance">500</span></p>
+  <button onclick="addMoney()">Receive Payment</button>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
