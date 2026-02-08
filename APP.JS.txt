@@ -1,0 +1,69 @@
+let balance = 500;
+let earnings = 0;
+let available = false;
+
+/* Navigation */
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* Client: Find Workers (AI mock) */
+function findWorkers() {
+  const skill = document.getElementById('skillSelect').value;
+  const list = document.getElementById('workerList');
+
+  list.innerHTML = `
+    <div class="card">
+      <h3>${skill} – Ramesh</h3>
+      <p>📍 0.6 km away</p>
+      <p>⭐ 4.5 | Verified ✔</p>
+      <button onclick="alert('Calling via masked number')">Call</button>
+      <button onclick="alert('Chat started')">Message</button>
+    </div>
+
+    <div class="card">
+      <h3>${skill} – Salim</h3>
+      <p>📍 0.9 km away</p>
+      <p>⭐ 4.2 | Reliable ✔</p>
+      <button>Call</button>
+      <button>Message</button>
+    </div>
+  `;
+}
+
+/* Worker availability */
+function toggleAvailability() {
+  available = !available;
+  alert(available ? "You are now visible to clients" : "You are offline");
+}
+
+/* Voice intro */
+function recordVoice() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice not supported");
+    return;
+  }
+  alert("Recording voice intro (demo)");
+}
+
+/* Job completion */
+function simulateJob() {
+  earnings += 400;
+  balance += 400;
+  document.getElementById('earnings').innerText = earnings;
+  document.getElementById('balance').innerText = balance;
+  alert("Job completed & logged ✔");
+}
+
+/* Wallet */
+function addMoney() {
+  balance += 300;
+  document.getElementById('balance').innerText = balance;
+  alert("UPI Payment Received");
+}
+
+/* Micro loan */
+function loan() {
+  alert("Micro-loan approved based on work history");
+}
